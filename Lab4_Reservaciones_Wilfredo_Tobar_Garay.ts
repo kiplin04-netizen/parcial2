@@ -1,12 +1,8 @@
 
-/*
-Nombre: Wilfredo Tobar Garay
-Laboratorio 4: Reservaciones de restaurante
-*/
 
 // 1. INTERFAZ
 interface Reservacion {
-    id: number;
+    id: number
     cliente: string;
     personas: number;
     zona: string;
@@ -14,10 +10,10 @@ interface Reservacion {
 
 // 2. ARREGLO INICIAL CON CUATRO RESERVACIONES
 const reservaciones: Reservacion[] = [
-    { id: 1, cliente: "Carlos", personas: 2, zona: "Interior" },
-    { id: 2, cliente: "María", personas: 6, zona: "Terraza" },
-    { id: 3, cliente: "José", personas: 4, zona: "Interior" },
-    { id: 4, cliente: "Ana", personas: 5, zona: "Terraza" }
+    { id: 1, cliente: "chepe 0 ", personas: 2, zona: "Interior" },
+    { id: 2, cliente: "chepe 1", personas: 6, zona: "Terraza" },
+    { id: 3, cliente: "chepe 2", personas: 4, zona: "Interior" },
+    { id: 4, cliente: "chepe 3", personas: 5, zona: "Terraza" }
 ];
 
 // FUNCIÓN TIPADA PARA REGISTRAR RESERVACIONES
@@ -38,13 +34,13 @@ function registrarReservacion(
 // 3. REGISTRAR UNA NORMAL Y UNA PRIORITARIA
 registrarReservacion(
     reservaciones,
-    { id: 5, cliente: "Pedro", personas: 3, zona: "Interior" },
+    { id: 5, cliente: "chepe 4", personas: 3, zona: "Interior" },
     false
 );
 
 registrarReservacion(
     reservaciones,
-    { id: 6, cliente: "Lucía", personas: 7, zona: "Terraza" },
+    { id: 6, cliente: "chepe 5", personas: 7, zona: "Terraza" },
     true
 );
 
@@ -86,7 +82,7 @@ const noEncontrada: Reservacion | undefined = reservaciones.find(
 if (noEncontrada !== undefined) {
     console.log("\nReservación encontrada:", noEncontrada);
 } else {
-    console.log("\nNo existe una reservación con ID:", idInexistente);
+    console.log("\nNo existe una reservación con ese  ID:", idInexistente);
 }
 
 // 6. FILTRAR TERRAZA CON CINCO O MÁS PERSONAS
@@ -104,7 +100,7 @@ console.log("\n--- RESERVACIONES FILTRADAS ---");
 if (filtradas.length > 0) {
     console.log(filtradas);
 } else {
-    console.log("No hay reservaciones que cumplan las condiciones.");
+    console.log("No se encontraron reservaciones que cumplan con los criterios de búsqueda.");
 }
 
 // 7. COMPROBACIONES FINALES
@@ -120,14 +116,3 @@ if (cantidadAntes === cantidadDespues) {
 } else {
     console.log("La cantidad del arreglo original cambió.");
 }
-
-// 8. SEGUNDA LLAMADA DE PRUEBA CON UN ARREGLO VACÍO
-const pruebaVacia: Reservacion[] = [];
-
-registrarReservacion(
-    pruebaVacia,
-    { id: 7, cliente: "Sofía", personas: 2, zona: "Interior" },
-    false
-);
-
-console.log("\nPrueba con arreglo vacío:", pruebaVacia);
